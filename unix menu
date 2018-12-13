@@ -1,0 +1,47 @@
+#!/bin/bash
+stop=0
+while test $stop = 0
+do
+echo
+echo Menu Options
+echo
+echo 1: Open Nano to create poem
+echo 2: Perform word count on poem
+echo 3: Display a poem using more or less
+echo 4: Sort and display a poem using cat or more
+echo 5: Exit
+echo
+echo "Please select an option: "
+read userchoice
+case $userchoice in
+"1" ) nano new_poem.txt ;;
+"2" ) echo
+wc -w newpoem.txt ;;
+"3" ) echo "Would you like to use more or less?"
+echo 1: more
+echo 2: less
+read choice
+case $choice in
+"1" ) echo
+more new_poem.txt ;;
+"2" ) echo
+less new_poem.txt ;;
+esac
+;;
+"4" ) sort new_poem.txt > sortedpoem.txt
+echo "Poem sorted. How would you like to display the poem?"
+echo 1: cat
+echo 2: more
+read sortchoice
+case $sortchoice in
+"1" ) echo
+cat sortedpoem.txt ;;
+"2" ) echo
+more sortedpoem.txt ;;
+esac
+;;
+"5" ) stop=1 ;;
+* ) echo
+echo "Invalid Option" ;;
+esac
+done
